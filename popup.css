@@ -1,0 +1,489 @@
+/* CSS Variables & Theming */
+:root {
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-secondary: #f1f5f9;
+  --bg-input: #ffffff;
+  --bg-hover: #f1f5f9;
+  
+  --border-light: #e2e8f0;
+  --border-card: #e2e8f0;
+  --border-input: #cbd5e1;
+  --border-focus: #3b82f6;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+
+  --accent-orange: #f97316;
+  --accent-orange-hover: #ea580c;
+  --accent-orange-bg: #fff7ed;
+  --accent-orange-border: #fed7aa;
+
+  --accent-blue: #2563eb;
+  --accent-blue-hover: #1d4ed8;
+
+  --accent-red: #ef4444;
+  --accent-red-hover: #dc2626;
+  --accent-red-bg: #fef2f2;
+  --accent-red-border: #fecaca;
+
+  --badge-bg: #e2e8f0;
+  --badge-text: #475569;
+
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow-btn: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-app: #0b0f19;
+    --bg-card: #151d2f;
+    --bg-card-secondary: #1e293b;
+    --bg-input: #1a2337;
+    --bg-hover: #222f46;
+
+    --border-light: #1f2b42;
+    --border-card: #24324d;
+    --border-input: #2e3e5c;
+    --border-focus: #60a5fa;
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+
+    --accent-orange: #ea580c;
+    --accent-orange-hover: #c2410c;
+    --accent-orange-bg: #291811;
+    --accent-orange-border: #6c2e12;
+
+    --accent-blue: #3b82f6;
+    --accent-blue-hover: #2563eb;
+
+    --accent-red: #ef4444;
+    --accent-red-hover: #dc2626;
+    --accent-red-bg: #2a1519;
+    --accent-red-border: #5f1d24;
+
+    --badge-bg: #222f46;
+    --badge-text: #94a3b8;
+
+    --shadow-card: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+    --shadow-btn: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+
+    --scrollbar-track: #151d2f;
+    --scrollbar-thumb: #2a374f;
+    --scrollbar-thumb-hover: #3b4d6e;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  width: 370px;
+  max-height: 590px;
+  overflow-y: auto;
+  padding: 14px;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Header */
+.header {
+  margin-bottom: 10px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-icon {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.header-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--text-main);
+}
+
+.domain-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  background: var(--bg-card-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2px 8px;
+  max-width: 280px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+  flex-shrink: 0;
+}
+
+.domain-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status Banner */
+.status-msg {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  min-height: 18px;
+  margin-bottom: 10px;
+  transition: opacity 0.2s ease;
+}
+
+/* Card Container */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 11px 12px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.global-card {
+  background: var(--accent-orange-bg);
+  border-color: var(--accent-orange-border);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-icon {
+  font-size: 13px;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Badges */
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  letter-spacing: 0.2px;
+}
+
+.badge-accent {
+  background: var(--accent-orange);
+  color: #ffffff;
+}
+
+/* Form Controls */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 9px 0;
+}
+
+.field-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.select-input {
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border-input);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.select-input:focus {
+  border-color: var(--border-focus);
+}
+
+/* Custom Checkbox */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 11px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 12px;
+  color: var(--text-main);
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  width: 15px;
+  height: 15px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: 4px;
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: var(--accent-orange);
+  border-color: var(--accent-orange);
+}
+
+.custom-checkbox input:checked ~ .checkmark::after {
+  content: "✓";
+  font-size: 10px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.checkbox-text {
+  font-size: 11.5px;
+}
+
+/* Actions */
+.actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  transition: background-color 0.15s ease, transform 0.05s ease, opacity 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-warning {
+  background-color: var(--accent-orange);
+  color: #ffffff;
+}
+.btn-warning:hover:not(:disabled) {
+  background-color: var(--accent-orange-hover);
+}
+
+.btn-outline-danger {
+  background-color: var(--accent-red-bg);
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red-border);
+}
+.btn-outline-danger:hover:not(:disabled) {
+  background-color: var(--accent-red);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--bg-card-secondary);
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-hover);
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-blue-hover);
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.btn-icon:hover {
+  color: var(--text-main);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Cookie Inspector */
+.cookie-list {
+  list-style: none;
+  max-height: 110px;
+  overflow-y: auto;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background: var(--bg-card-secondary);
+  margin-bottom: 8px;
+}
+
+.cookie-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 11px;
+}
+
+.cookie-item:last-child {
+  border-bottom: none;
+}
+
+.cookie-info {
+  max-width: 280px;
+  overflow: hidden;
+}
+
+.cookie-name {
+  font-weight: 600;
+  color: var(--text-main);
+  word-break: break-all;
+}
+
+.cookie-val {
+  font-size: 10px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-delete-cookie {
+  background: none;
+  border: none;
+  color: var(--accent-red);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.btn-delete-cookie:hover {
+  opacity: 0.7;
+}
+
+/* Add Form */
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+}
+
+.form-inputs {
+  display: flex;
+  gap: 6px;
+}
+
+.form-inputs input {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border-input);
+  border-radius: 5px;
+  outline: none;
+}
+
+.form-inputs input:focus {
+  border-color: var(--border-focus);
+}

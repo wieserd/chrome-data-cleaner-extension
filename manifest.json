@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Site Cookie & Storage Manager",
+  "version": "1.3.0",
+  "description": "Clear cookies, storage, cache, and history across all websites or for the active site.",
+  "permissions": [
+    "browsingData",
+    "cookies",
+    "activeTab",
+    "scripting",
+    "history"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Site Cookie & Storage Manager",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  }
+}

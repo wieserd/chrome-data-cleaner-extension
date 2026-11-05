@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Site Cookie & Storage Manager</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <img src="images/icon48.png" alt="Cookie Icon" class="header-icon" />
+      <div>
+        <h3 class="header-title">Data & Cookie Cleaner</h3>
+        <div class="domain-pill" id="domain-pill" title="Current Website">
+          <span class="status-dot"></span>
+          <span id="domain-label" class="domain-text">Detecting site...</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Status Feedback Banner -->
+  <div id="status-msg" class="status-msg"></div>
+
+  <!-- Global Clear Section (All Websites) -->
+  <section class="card global-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">⚡</span>
+        <h4>Clear All Websites</h4>
+      </div>
+      <span class="badge badge-accent">Quick Wipe</span>
+    </div>
+
+    <div class="form-row">
+      <label for="time-range-select" class="field-label">Time range</label>
+      <select id="time-range-select" class="select-input">
+        <option value="15" selected>Last 15 minutes</option>
+        <option value="60">Last 1 hour</option>
+        <option value="1440">Last 24 hours</option>
+        <option value="10080">Last 7 days</option>
+        <option value="0">All time</option>
+      </select>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="custom-checkbox">
+        <input type="checkbox" id="check-cookies" checked />
+        <span class="checkmark"></span>
+        <span class="checkbox-text">Cookies & Site Data (LocalStorage, DBs)</span>
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" id="check-cache" checked />
+        <span class="checkmark"></span>
+        <span class="checkbox-text">Cached Images & Files</span>
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" id="check-history" />
+        <span class="checkmark"></span>
+        <span class="checkbox-text">Browsing History</span>
+      </label>
+    </div>
+
+    <button id="clear-global-btn" class="btn btn-warning">
+      Clear Selected for All Websites
+    </button>
+  </section>
+
+  <!-- Current Website Only Section -->
+  <section class="card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🎯</span>
+        <h4>Active Site Only</h4>
+      </div>
+    </div>
+    <div class="actions-group">
+      <button id="clear-all-data-btn" class="btn btn-outline-danger">
+        Wipe This Site's Storage & Cookies
+      </button>
+      <button id="clear-all-cookies-btn" class="btn btn-secondary">
+        Clear Cookies Only
+      </button>
+    </div>
+  </section>
+
+  <!-- Cookie Inspector & Add Cookie -->
+  <section class="card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🍪</span>
+        <h4>Site Cookies</h4>
+      </div>
+      <div class="header-actions">
+        <span class="badge" id="cookie-count-badge"><span id="cookie-count">0</span> cookies</span>
+        <button id="refresh-btn" class="btn-icon" title="Refresh cookie list">↻</button>
+      </div>
+    </div>
+
+    <ul id="cookie-list" class="cookie-list"></ul>
+
+    <form id="add-cookie-form" class="add-form">
+      <div class="form-inputs">
+        <input type="text" id="cookie-name" placeholder="Cookie name" required />
+        <input type="text" id="cookie-value" placeholder="Value" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Add Cookie</button>
+    </form>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
