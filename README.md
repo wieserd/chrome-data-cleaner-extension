@@ -20,3 +20,7 @@ A Chrome extension (Manifest V3) to inspect, manage, and clear cookies, local st
 2. Open Google Chrome and navigate to `chrome://extensions`.
 3. Enable **Developer mode** in the top-right corner.
 4. Click **Load unpacked** and select this directory.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
